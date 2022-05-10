@@ -12,7 +12,6 @@ from backend.src.resources.register import Register
 from backend.src.resources.login import Login
 from backend.src.resources.user_tweet import UserTweet
 from backend.src.resources.profile import Profile
-from backend.src.models.models import User
 
 
 def create_app():
@@ -36,14 +35,7 @@ def create_app():
 
     api.init_app(app)
     cors.init_app(app)
-    
-    jwt.init_app(app)
-    
-    # @jwt.user_lookup_loader
-    # def user_lookup_callback(_jwt_header, jwt_data):
-    #     identity = jwt_data["sub"]
-    #     return User.query.filter(User.email == identity).first()
-    
+    jwt.init_app(app)    
     db.init_app(app)
     ma.init_app(app)
     
