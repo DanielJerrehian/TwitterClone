@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 
 import TwitterWhite from '../images/TwitterWhite.svg'
 import TwitterBlue from '../images/TwitterBlue.svg'
@@ -9,26 +10,26 @@ import TwitterBlue from '../images/TwitterBlue.svg'
 function LandingPage() {
     return (
         <div>
-            <Grid container>
+            <Grid container sx={{ height: '100vh' }}>
                 <Grid item xs={7}>
                     <Box sx={{ bgcolor: 'white', height: '100vh' }}>
                         <img 
                             style={{
                                 position: 'absolute',
-                                height: '200px',
-                                width: '200px'
+                                height: '400px',
+                                width: '400px',
                             }}
                             src={TwitterWhite}
                         />
                         <img 
-                            style={{height: '100%'}}
+                            style={{height: '100%', width: '100%'}}
                             src="https://abs.twimg.com/sticky/illustrations/lohp_en_850x623.png"
                         />
 
                     </Box>
                 </Grid>
                 <Grid item xs={5}>
-                    <Box sx={{ bgcolor: 'white', height: '100vh' }}>
+                    <Box sx={{ bgcolor: 'white' }}>
                         <div style={{margin: '50px'}}>
                             <img style={{ width: '40px', height: '40px'}} src={TwitterBlue} />
                             <h1 style={{fontSize: 50}}>Happening Now</h1>
@@ -45,10 +46,11 @@ function LandingPage() {
                                 <Button variant="outlined" size="large" sx={{marginBottom: '20px', width: '400px'}}>Sign up with Google</Button>
                                 <Button variant="outlined" size="large" sx={{marginBottom: '20px', width: '400px'}}>Sign up with Apple</Button>
                                 <div style={{marginBottom: '20px'}}>
-                                    <span>or</span>
+                                    <Divider>or</Divider>
                                 </div>
                                 <Button variant="contained" color="primary" size="large" sx={{marginBottom: '20px', width: '400px'}}>Sign up with email</Button>
                                 <span style={{marginBottom: '20px', fontWeight: 300}}>By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</span>
+                                <Divider />
                                 <div 
                                     style={{
                                         marginTop: '50px',

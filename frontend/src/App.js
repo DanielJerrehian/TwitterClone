@@ -9,15 +9,13 @@ import './style.css';
 function App() {
   return (
     <main>
-        <div>
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/home' element={null} />
-                <Route path='/explore' element={null} />
-                <Route path='/profile' element={null} />
-                <Route path="*" element={null} />
-            </Routes>
-        </div>
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/home' element={null} />
+            <Route path='/explore' element={null} />
+            <Route path='/profile' element={null} />
+            <Route path="*" element={null} />
+        </Routes>
         <Footer />
     </main>
   );
