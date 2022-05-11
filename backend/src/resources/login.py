@@ -1,7 +1,7 @@
 from flask import request
 from flask_restful import Resource
 from werkzeug.security import check_password_hash
-from flask_jwt_extended import create_access_token, create_refresh_token, get_jwt_identity
+from flask_jwt_extended import create_access_token, create_refresh_token
 
 from backend.src.models.models import User
 
@@ -17,5 +17,5 @@ class Login(Resource):
             if passwords_match:
                 access_token = create_access_token(identity=user.email)
                 refresh_token = create_refresh_token(identity=user.email)
-                return {"access_token": access_token, "refresh_token": refresh_token}, 200
+                return {"accessToken": access_token, "refreshToken": refresh_token}, 200
                 

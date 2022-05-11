@@ -10,12 +10,13 @@ class User(db.Model):
     username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     birthday = db.Column(db.Date, nullable=False)
-    tweets = db.relationship('Tweet', uselist=True, backref=backref('user', uselist=False), lazy=True)
+    profile_picture = db.Column(db.String(120), unique=False, nullable=True)
+    tweets = db.relationship("Tweet", uselist=True, backref=backref('user', uselist=False), lazy=True)
     
 
 class Tweet(db.Model):
     __tablename__ = "tweet"
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     body = db.Column(db.String(140), nullable=False)
     

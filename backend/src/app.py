@@ -6,11 +6,13 @@ from backend.src.api.api import api
 from backend.src.network.cors import cors
 from backend.src.authentication.jwt import jwt
 from backend.src.models.db import db
-from backend.src.models.marshmallow import ma
+from backend.src.models.marshmallow.ma import ma
 from backend.src.resources.tweets import Tweets
 from backend.src.resources.register import Register
 from backend.src.resources.login import Login
+from backend.src.resources.refresh_token import RefreshToken
 from backend.src.resources.user_tweet import UserTweet
+from backend.src.resources.compose_tweet import ComposeTweet
 from backend.src.resources.profile import Profile
 
 
@@ -30,8 +32,10 @@ def create_app():
     api.add_resource(Tweets, "/timeline")
     api.add_resource(Register, "/register")
     api.add_resource(Login, "/login")
+    api.add_resource(RefreshToken, "/refresh-token")
+    api.add_resource(ComposeTweet, "/compose/tweet")
+    api.add_resource(UserTweet, "/<string:username>/tweet/<string:tweet_id>")
     api.add_resource(Profile, "/<string:username>")
-    api.add_resource(UserTweet, "/<string:username>/tweet/<string:id>")
 
     api.init_app(app)
     cors.init_app(app)

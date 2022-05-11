@@ -17,7 +17,7 @@ class Register(Resource):
             email = data["email"].lower()
             hashed_password = generate_password_hash(password=data["password"], salt_length=10)
             birthday = datetime.strptime(data["userBirthday"], "%m-%d-%Y").date()
-            user = User(email=email, username=data["username"], password=hashed_password, birthday=birthday)
+            user = User(email=email, username=data["username"], password=hashed_password, birthday=birthday, profile_picture=data["profilePicture"])
             db.session.add(user)
             db.session.commit()
             return {"message": "User created succesfully."}, 201

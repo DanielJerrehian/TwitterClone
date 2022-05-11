@@ -1,7 +1,10 @@
 from flask_restful import Resource
 
+from backend.src.models.models import db, Tweet
+from backend.src.models.marshmallow.models.marshmallow_schemas import TweetSchema
 
 class Tweets(Resource):
     def get(self):
-        pass
+        tweets = Tweet.query.all()
+        return {"tweets": TweetSchema().dump(tweets, many=True)}, 200
     
