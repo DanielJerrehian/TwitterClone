@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import Stack from '@mui/material/Stack';
@@ -29,11 +30,7 @@ function Login(props) {
     }
 
     function navigatePage(link) {
-        function handleNavigate() {
-            console.log("here")
             navigate(`/${link}`);
-        }
-        return () => handleNavigate()
     };
 
     async function handleSubmit(event) {
@@ -44,7 +41,7 @@ function Login(props) {
             if (data?.status === 200) {
                 console.log(data)
                 handleClose()
-                navigatePage("/feed")
+                navigatePage("feed")
             }
         }
         catch (error) {

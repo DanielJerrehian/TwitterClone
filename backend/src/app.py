@@ -29,7 +29,7 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    api.add_resource(Tweets, "/timeline")
+    api.add_resource(Tweets, "/tweets")
     api.add_resource(Register, "/register")
     api.add_resource(Login, "/login")
     api.add_resource(RefreshToken, "/refresh-token")

@@ -5,7 +5,7 @@ from backend.src.models.models import Tweet, User
 
 class TweetSchema(ma.SQLAlchemyAutoSchema):   
     
-    tweets = ma.Nested("UserSchema", many=True)
+    user = ma.Nested("UserSchema", exclude=("tweets",))
      
     class Meta:
         model = Tweet

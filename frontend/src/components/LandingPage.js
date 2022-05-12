@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -10,7 +11,7 @@ import Chip from '@mui/material/Chip';
 import Register from './Register'
 import Login from './Login'
 
-function LandingPage(props) {
+function LandingPage() {
     const [openRegister, setOpenRegister] = useState(false);
     const handleOpenRegister = () => setOpenRegister(true); 
 

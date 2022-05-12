@@ -5,6 +5,6 @@ from backend.src.models.marshmallow.models.marshmallow_schemas import TweetSchem
 
 class Tweets(Resource):
     def get(self):
-        tweets = Tweet.query.all()
+        tweets = Tweet.query.order_by(Tweet.id.desc()).all()
         return {"tweets": TweetSchema().dump(tweets, many=True)}, 200
     
