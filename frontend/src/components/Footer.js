@@ -19,7 +19,6 @@ function Footer() {
         <p>Imprint</p>
         <p>Settings</p>
         <p>© 2022 Twitter, Inc.</p>
-
     </Container>
   )
 }

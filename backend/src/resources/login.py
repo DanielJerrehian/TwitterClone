@@ -18,4 +18,7 @@ class Login(Resource):
                 access_token = create_access_token(identity=user.email)
                 refresh_token = create_refresh_token(identity=user.email)
                 return {"accessToken": access_token, "refreshToken": refresh_token}, 200
+            else:
+                return {"message": "Password incorrect"}, 401
+                
                 

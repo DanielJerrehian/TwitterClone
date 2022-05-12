@@ -4,7 +4,6 @@ const theme = createTheme({
     palette: {
         primary: {
             main:"#1DA1F2",
-            // contrastText: "#fff"
         },
         secondary: {
             main:"#14171A",
@@ -24,6 +23,10 @@ const theme = createTheme({
             },
           }, 
         }, 
+    },
+    typography: {
+        "fontFamily": `'Archivo', sans-serif`,
+        "fontSize": 14,
     },
 });
 
