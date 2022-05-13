@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import Container from '@mui/material/Container'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 
 
-function ComposeTweet(props) {
+function ComposeTweet() {
+    const [currentUser, setCurrentUser] = useState([])
+    
+    async function getCurrentUser() {
+        const { data } = await axios.get('/current-user') 
+        setCurrentUser(data?.user)
+    }
+
+    useEffect(() => {
+        getCurrentUser();
+    }, []);
 
     return (
         <Container sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
@@ -20,17 +30,13 @@ function ComposeTweet(props) {
                     <CardContent>
                         <Stack direction='column' spacing={3}>
                             <Stack direction='row' spacing={1} alignItems='center'>
-                                <Avatar alt={props?.tweet?.user.username} src={props?.tweet?.user.profile_picture} />
-                                <Typography sx={{ fontWeight: 600 }} color="black">
-                                    @{props?.tweet?.user.username}
-                                </Typography>
+                                <Avatar alt={currentUser.username} src={currentUser.profile_picture} />
                             </Stack>
                             <TextField
                                 id="new-tweet"
                                 label="New Tweet"
                                 variant="filled"
                             />
-
                         </Stack>
                     </CardContent>
                     <CardActions>
