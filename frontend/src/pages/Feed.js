@@ -29,11 +29,9 @@ function Home() {
         <div>
             <Grid container={true} direction='row' justifyContent='center' height='100vh'>
                 <Grid item={true} md={3} alignItems='flex-start'>
-                    {/* <Box sx={{ height: '100vh' }}> */}
-                        <FeedSidebarLeft />
-                    {/* </Box> */}
+                    <FeedSidebarLeft />
                 </Grid>
-                <Grid item={true} md={6} alignItems='center' justifyContent='center' sx={{border: '1px solid #0000001f'}}>
+                <Grid item={true} md={6} alignItems='center' justifyContent='center' sx={{ border: '1px solid #0000001f' }}>
                     <Stack direction='column' spacing={3} alignItems='center'>
                         <Typography variant='h6' sx={{ fontWeight: 600, color: 'black' }}>
                             Latest Tweets
@@ -47,9 +45,7 @@ function Home() {
                     </ Stack>
                 </Grid>
                 <Grid item={true} md={3} alignItems='flex-start'>
-                    {/* <Box sx={{ height: '100vh' }}> */}
-                        <FeedSidebarRight />
-                    {/* </Box> */}
+                    <FeedSidebarRight />
                 </Grid>
             </Grid>
         </div>
