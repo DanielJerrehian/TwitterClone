@@ -27,39 +27,29 @@ function Home() {
 
     return (
         <div>
-            <Grid container={true} direction='row' alignItems='center' justifyContent='center' height='100vh'>
-                <Grid item={true} md={3}>
-                    <Box
-                        sx={{
-                            // bgcolor: '#1DA1F2',
-                            height: '100vh'
-                        }}
-                    >
+            <Grid container={true} direction='row' justifyContent='center' height='100vh'>
+                <Grid item={true} md={3} alignItems='flex-start'>
+                    {/* <Box sx={{ height: '100vh' }}> */}
                         <FeedSidebarLeft />
-                    </Box>
+                    {/* </Box> */}
                 </Grid>
-                <Grid item={true} md={6} alignItems='center' justifyContent='center'>
+                <Grid item={true} md={6} alignItems='center' justifyContent='center' sx={{border: '1px solid #0000001f'}}>
                     <Stack direction='column' spacing={3} alignItems='center'>
                         <Typography variant='h6' sx={{ fontWeight: 600, color: 'black' }}>
                             Latest Tweets
                         </Typography>
 
-                        <ComposeTweet />
+                        <ComposeTweet tweets={tweets} setTweets={setTweets} />
 
                         <Divider sx={{ width: '90%' }} />
 
                         {tweets?.map(tweet => <Tweet key={tweet?.id} tweet={tweet} />)}
                     </ Stack>
                 </Grid>
-                <Grid item={true} md={3}>
-                    <Box
-                        sx={{
-                            bgcolor: 'red',
-                            height: '100vh'
-                        }}
-                    >
+                <Grid item={true} md={3} alignItems='flex-start'>
+                    {/* <Box sx={{ height: '100vh' }}> */}
                         <FeedSidebarRight />
-                    </Box>
+                    {/* </Box> */}
                 </Grid>
             </Grid>
         </div>

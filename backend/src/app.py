@@ -34,7 +34,7 @@ def create_app():
     api.add_resource(Register, "/register")
     api.add_resource(Login, "/login")
     api.add_resource(RefreshToken, "/refresh-token")
-    api.add_resource(CurrentUser, "/current-user")
+    api.add_resource(CurrentUser, "/current-user", endpoint='current-user')
     api.add_resource(ComposeTweet, "/compose/tweet")
     api.add_resource(UserTweet, "/<string:username>/tweet/<string:tweet_id>")
     api.add_resource(Profile, "/<string:username>")

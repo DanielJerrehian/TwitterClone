@@ -67,8 +67,8 @@ function Login(props) {
                             onChange={handleChange}
                             label='Email Address'
                             type='email'
-                            fullWidth
                             variant='outlined'
+                            fullWidth
                         />
                         <TextField
                             autoFocus
@@ -79,8 +79,8 @@ function Login(props) {
                             onChange={handleChange}
                             label='Password'
                             type='password'
-                            fullWidth
                             variant='outlined'
+                            fullWidth
                         />
                         <Button type='submit' variant='contained' color='primary' size='large' sx={{ width: '50%', fontWeight: 600, color: 'white' }}>
                             Login

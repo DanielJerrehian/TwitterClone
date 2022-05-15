@@ -25,7 +25,13 @@ function FeedSidebarRight() {
             <Searchbar />
             <Paper sx={{ width: '75%' }}>
                 <MenuList>
-                    {trends?.map(trend => <MenuItem key={trend}><ListItemText>{trend}</ListItemText></MenuItem>)}
+                    {trends?.map(trend => 
+                        <MenuItem key={trend}>
+                            <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
+                                {trend}
+                            </ListItemText>
+                        </MenuItem>)
+                    }
                     <Divider />
                     <MenuItem>
                         <ListItemText>More Trends</ListItemText>

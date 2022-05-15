@@ -13,10 +13,11 @@ function Searchbar() {
             variant='filled'
         >
             <Input
-                id="search-twitter"
+                id='search-twitter'
                 variant='filled'
+                placeholder="Search"
                 startAdornment={
-                    <InputAdornment>
+                    <InputAdornment position='start' sx={{marginRight: '.5rem'}}>
                         <SearchIcon />
                     </InputAdornment>
                 }

@@ -17,40 +17,51 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 
 function FeedSidebarLeft() {
+
     return (
-        <Stack direction='column' spacing={3} alignItems='center' justifyContent='center' marginTop='3rem'>
-            <Paper sx={{ width: '75%' }}>
+        <Stack direction='column' spacing={4} alignItems='center' justifyContent='center' marginTop='3rem'>
+            <Paper sx={{ width: '75%', height: '75%' }}>
                 <MenuList>
                     <MenuItem>
-                        <ListItemIcon>
-                            <HomeIcon fontSize="small" />
+                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                            <HomeIcon fontSize="large" />
                         </ListItemIcon>
-                        <ListItemText>Home</ListItemText>
+                        <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
+                            Home
+                        </ListItemText>
                     </MenuItem>
                     <MenuItem>
-                        <ListItemIcon>
-                            <TagIcon fontSize="small" />
+                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                            <TagIcon fontSize="large" />
                         </ListItemIcon>
-                        <ListItemText>Explore</ListItemText>
+                        <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
+                            Explore
+                        </ListItemText>
                     </MenuItem>
                     <MenuItem>
-                        <ListItemIcon>
-                            <NotificationsIcon fontSize="small" />
+                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                            <NotificationsIcon fontSize="large" />
                         </ListItemIcon>
-                        <ListItemText>Notifications</ListItemText>
+                        <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
+                            Notifications
+                        </ListItemText>
                     </MenuItem>
                     <MenuItem>
-                        <ListItemIcon>
-                            <PersonIcon fontSize="small" />
+                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                            <PersonIcon fontSize="large" />
                         </ListItemIcon>
-                        <ListItemText>Profile</ListItemText>
+                        <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
+                            Profile
+                        </ListItemText>
                     </MenuItem>
                     <Divider />
                     <MenuItem>
-                        <ListItemIcon>
-                            <MoreHorizIcon fontSize="small" />
+                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                            <MoreHorizIcon fontSize="large" />
                         </ListItemIcon>
-                        <ListItemText>More</ListItemText>
+                        <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
+                            More
+                        </ListItemText>
                     </MenuItem>
                     <Divider />
                     <Stack direction='column' spacing={3} alignItems='center' justifyContent='center'>
@@ -58,7 +69,7 @@ function FeedSidebarLeft() {
                             onClick={null}
                             variant='contained'
                             size='large'
-                            sx={{ width: '75%', fontWeight: 600, bgcolor: "primary", color: 'white' }}
+                            sx={{ width: '75%', fontWeight: 400, bgcolor: "primary", color: 'white' }}
                         >
                             Tweet
                         </Button>
