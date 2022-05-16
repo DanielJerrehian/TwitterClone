@@ -1,6 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-import Container from '@mui/material/Container'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
@@ -11,35 +10,48 @@ import CardActions from '@mui/material/CardActions';
 
 
 function Tweet(props) {
+    const { tweet, currentUser, handleDeleteTweet } = props;
+    
+
     return (
-        // <Container sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-            <Card sx={{ width: '100%' }}>
-                <Stack direction='column' spacing={1}>
-                    <CardContent>
+        <Card sx={{ width: '100%' }}>
+            <Stack direction='column' spacing={1}>
+                <CardContent>
                     <Stack direction='column' spacing={3}>
-                            <Stack direction='row' spacing={1} alignItems='center'>
-                                <Avatar alt={props?.tweet?.user.username} src={props?.tweet?.user.profile_picture} />
-                                <Typography sx={{ fontWeight: 600 }} color="black">
-                                    @{props?.tweet?.user.username}
-                                </Typography>
-                                <Typography color="gray">
-                                    ·
-                                </Typography>
-                                <Typography sx={{ fontWeight: 300 }} color="gray">
-                                    ({props?.tweet?.user.email})
-                                </Typography>
-                            </Stack>
-                            <Typography>
-                                {props?.tweet?.body}
+                        <Stack direction='row' spacing={1} alignItems='center'>
+                            <Avatar alt={tweet?.user.username} src={tweet?.user.profile_picture} />
+                            <Typography sx={{ fontWeight: 600 }} color="black">
+                                @{tweet?.user.username}
+                            </Typography>
+                            <Typography color="gray">
+                                ·
+                            </Typography>
+                            <Typography sx={{ fontWeight: 300 }} color="gray">
+                                ({tweet?.user.email})
                             </Typography>
                         </Stack>
-                    </CardContent>
-                    <CardActions>
-                            <Button variant='outlined' size="small" sx={{ fontWeight: 600, color:"black"}}>...</Button>
-                    </CardActions>
-                </Stack>
-            </Card>
-        // </Container>
+                        <Typography>
+                            {tweet?.body}
+                        </Typography>
+                    </Stack>
+                </CardContent>
+                {
+                    tweet?.user?.id === currentUser?.id ?
+                        <CardActions>
+                            <Button
+                                onClick={() => handleDeleteTweet(tweet?.id)}
+                                variant='outlined'
+                                size='small'
+                                sx={{ fontWeight: 600, color: 'black' }}
+                            >
+                                Delete Tweet
+                            </Button>
+                        </CardActions>
+                        :
+                        null
+                }
+            </Stack>
+        </Card>
     )
 }
 

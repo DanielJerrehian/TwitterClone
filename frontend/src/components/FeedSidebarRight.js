@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
@@ -12,13 +11,7 @@ import Button from '@mui/material/Button';
 import Searchbar from './Searchbar.js'
 
 function FeedSidebarRight() {
-    const [trends, setTrends] = useState(['Trend 1', 'Trend 2', 'Trend 3'])
-
-    async function getTrends() {
-        const data = await axios.get('/trends')
-        setTrends(data?.trends)
-    }
-   
+    const [trends] = useState(['Trend 1', 'Trend 2', 'Trend 3'])
 
     return (
         <Stack direction='column' spacing={3} alignItems='center' justifyContent='center' marginTop='3rem'>

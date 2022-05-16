@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
@@ -14,9 +14,14 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
+import ComposeTweetModal from './ComposeTweetModal.js';
 
 
-function FeedSidebarLeft() {
+function FeedSidebarLeft(props) {
+    const { tweets, setTweets } = props
+    const [openTweetModal, setOpenTweetModal] = useState(false);
+    const handleOpenTweetModal = () => setOpenTweetModal(true); 
+
 
     return (
         <Stack direction='column' spacing={4} alignItems='center' justifyContent='center' marginTop='3rem'>
@@ -66,13 +71,14 @@ function FeedSidebarLeft() {
                     <Divider />
                     <Stack direction='column' spacing={3} alignItems='center' justifyContent='center'>
                         <Button
-                            onClick={null}
+                            onClick={handleOpenTweetModal}
                             variant='contained'
                             size='large'
                             sx={{ width: '75%', fontWeight: 400, bgcolor: "primary", color: 'white' }}
                         >
                             Tweet
                         </Button>
+                        <ComposeTweetModal tweets={tweets} setTweets={setTweets} openTweetModal={openTweetModal} setOpenTweetModal={setOpenTweetModal} />
                     </Stack>
                 </MenuList>
             </Paper>
