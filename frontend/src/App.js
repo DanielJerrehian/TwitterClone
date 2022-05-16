@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from './pages/Home.js'
 import Feed from './pages/Feed.js'
+
+import Profile from './pages/Profile.js'
 // import Footer from './components/Footer.js'
 import './style.css';
 
@@ -14,8 +16,8 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/feed' element={<Feed />} />
             <Route path='/explore' element={null} />
-            <Route path='/profile' element={null} />
-            <Route path="*" element={null} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path="*" element={<p>Temporary Error Page: 404</p>} />
         </Routes>
         {/* <Footer /> */}
     </main>

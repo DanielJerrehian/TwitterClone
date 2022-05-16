@@ -12,7 +12,7 @@ import CardActions from '@mui/material/CardActions';
 
 
 function ComposeTweet(props) {
-    const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1MjYyNzI3MiwianRpIjoiYTMzNWVjMDYtZTBlMy00M2M5LWI0ODAtM2NhYmQzZjYwZDFkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImRhbmllbGplcnJlaGlhbkBnbWFpbC5jb20iLCJuYmYiOjE2NTI2MjcyNzIsImV4cCI6MTY1MzIzMjA3Mn0.l0wkwTwXWKYx0aE9cchSVvAFSArNdzB2GtWSzCtA8_8"
+    const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1MjY4NjQ3NSwianRpIjoiNzk4YjM3NDUtZDFiZC00MzM1LThiOTMtYjMxNDhkMTZhNDJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImRhbmllbGplcnJlaGlhbkBnbWFpbC5jb20iLCJuYmYiOjE2NTI2ODY0NzUsImV4cCI6MTY1MzI5MTI3NX0.2X5wT0kYrC54CJTX26uFmWi5fH4Fw7TtZBs34-C0ql8"
     const [currentUser, setCurrentUser] = useState([])
     const [newTweet, setNewTweet] = useState({'body': ''})
 

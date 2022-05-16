@@ -11,9 +11,8 @@ import CardActions from '@mui/material/CardActions';
 
 
 function Tweet(props) {
-    
     return (
-        <Container sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+        // <Container sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
             <Card sx={{ width: '100%' }}>
                 <Stack direction='column' spacing={1}>
                     <CardContent>
@@ -40,7 +39,7 @@ function Tweet(props) {
                     </CardActions>
                 </Stack>
             </Card>
-        </Container>
+        // </Container>
     )
 }
 

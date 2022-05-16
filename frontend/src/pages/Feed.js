@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -39,7 +38,7 @@ function Home() {
 
                         <ComposeTweet tweets={tweets} setTweets={setTweets} />
 
-                        <Divider sx={{ width: '90%' }} />
+                        <Divider sx={{ width: '100%' }} />
 
                         {tweets?.map(tweet => <Tweet key={tweet?.id} tweet={tweet} />)}
                     </ Stack>
