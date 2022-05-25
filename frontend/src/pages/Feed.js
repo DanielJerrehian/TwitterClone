@@ -11,15 +11,20 @@ import ComposeTweet from '../components/ComposeTweet.js'
 import FeedSidebarLeft from '../components/FeedSidebarLeft.js'
 import FeedSidebarRight from '../components/FeedSidebarRight.js'
 
+import { getTokens } from '../utils/localStorage'
+import { callApiGet } from '../utils/callApi'
+import { callApiDelete } from '../utils/callApi'
 
 function Home() {
-    const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1MjY4NjQ3NSwianRpIjoiNzk4YjM3NDUtZDFiZC00MzM1LThiOTMtYjMxNDhkMTZhNDJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImRhbmllbGplcnJlaGlhbkBnbWFpbC5jb20iLCJuYmYiOjE2NTI2ODY0NzUsImV4cCI6MTY1MzI5MTI3NX0.2X5wT0kYrC54CJTX26uFmWi5fH4Fw7TtZBs34-C0ql8"
+    const { accessToken, refreshToken } = getTokens()
     const [currentUser, setCurrentUser] = useState([])
     const [tweets, setTweets] = useState([])
 
     async function getCurrentUser() {
-        const { data } = await axios.get('/current-user?includeTweets=false', { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` } })
-        setCurrentUser(data?.user)
+        const data = await callApiGet('/current-user?includeTweets=false', accessToken)
+        if (data) {
+            setCurrentUser(data?.user)
+        }
     }
 
     useEffect(() => {
@@ -27,8 +32,10 @@ function Home() {
     }, []);
 
     async function getTweets() {
-        const { data } = await axios.get('/tweets')
-        setTweets(data?.tweets)
+        const data = await callApiGet('/tweets');
+        if (data) {
+            setTweets(data?.tweets)
+        }
     }
 
     useEffect(() => {
@@ -37,8 +44,8 @@ function Home() {
 
     async function handleDeleteTweet(tweetId) {
         try {
-            const data = await axios.delete(`/${currentUser?.username}/tweet/${tweetId}`, { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` } })
-            if (data?.status === 200) {
+            const data = await callApiDelete(`/${currentUser?.username}/tweet/${tweetId}`, accessToken);
+            if (data) {
                 setTweets(tweets.filter(tweet => tweet.id !== tweetId))
             }
         } catch (error) {
@@ -56,11 +63,8 @@ function Home() {
                     <Typography variant='h6' sx={{ fontWeight: 600, color: 'black' }}>
                         Latest Tweets
                     </Typography>
-
-                    <ComposeTweet currentUser={currentUser} setCurrentUser={setCurrentUser} token={token} tweets={tweets} setTweets={setTweets} />
-
+                    <ComposeTweet currentUser={currentUser} setCurrentUser={setCurrentUser} token={accessToken} tweets={tweets} setTweets={setTweets} />
                     <Divider sx={{ width: '100%' }} />
-
                     {tweets?.map(tweet => <Tweet key={tweet?.id} tweet={tweet} currentUser={currentUser} handleDeleteTweet={handleDeleteTweet} />)}
                 </ Stack>
             </Grid>

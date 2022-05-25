@@ -13,4 +13,4 @@ class CurrentUser(Resource):
             user = UserSchema().dump(current_user)
         else:
             user = UserSchema(exclude=["tweets"]).dump(current_user)
-        return {"user": user}, 201
+        return {"user": user}, 200

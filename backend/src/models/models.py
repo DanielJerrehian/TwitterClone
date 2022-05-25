@@ -11,7 +11,7 @@ class User(db.Model):
     password = db.Column(db.String(60), nullable=False)
     birthday = db.Column(db.Date, nullable=False)
     profile_picture = db.Column(db.String(120), unique=False, nullable=True)
-    tweets = db.relationship("Tweet", uselist=True, backref=backref('user', uselist=False), lazy=True)
+    tweets = db.relationship("Tweet", uselist=True, order_by="desc(Tweet.id)", backref=backref('user', uselist=False), lazy=True)
     
 
 class Tweet(db.Model):

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -9,10 +8,11 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 
+import { callApiPost } from '../utils/callApi'
 
 function ComposeTweet(props) {
     const { currentUser, token } = props
-    const [newTweet, setNewTweet] = useState({ 'body' : '' })
+    const [newTweet, setNewTweet] = useState({ body: '' })
 
     function handleChange(event) {
         const { name, value } = event.target
@@ -28,8 +28,8 @@ function ComposeTweet(props) {
         event.preventDefault()
 
         try {
-            const data = await axios.post('/compose/tweet', newTweet, { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` } })
-            if (data?.status === 201) {
+            const data = await callApiPost('/compose/tweet', newTweet, token)
+            if (data) {
                 newTweet['id'] = props.tweets.length + 1
                 newTweet['user'] = currentUser
                 props.setTweets(prevTweets => {
@@ -38,10 +38,11 @@ function ComposeTweet(props) {
                         ...prevTweets
                     ]
                 })
-                setNewTweet({ 'body': '' })
+                setNewTweet({ body: '' })
                 if (props.modal) {
                     props.handleClose()
                 }
+
             }
         }
         catch (error) {

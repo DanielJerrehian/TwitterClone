@@ -16,7 +16,7 @@ class Login(Resource):
         else:
             passwords_match = check_password_hash(pwhash=user.password, password=data["password"])
             if passwords_match:
-                access_token = create_access_token(identity=user.email, expires_delta=timedelta(days=7))
+                access_token = create_access_token(identity=user.email, expires_delta=timedelta(minutes=20))
                 refresh_token = create_refresh_token(identity=user.email)
                 return {"accessToken": access_token, "refreshToken": refresh_token}, 200
             else:

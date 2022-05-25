@@ -7,6 +7,7 @@ import Feed from './pages/Feed.js'
 import Profile from './pages/Profile.js'
 import Explore from './pages/Explore.js'
 // import Footer from './components/Footer.js'
+
 import './style.css';
 
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
 import Dialog from '@mui/material/Dialog';
@@ -9,6 +8,8 @@ import TextField from '@mui/material/TextField';
 import DialogContent from '@mui/material/DialogContent';
 import Button from '@mui/material/Button';
 
+import { callApiPost } from '../utils/callApi'
+import { writeAccessToken, writeRefreshToken } from '../utils/localStorage'
 
 function Login(props) {
     const navigate = useNavigate();
@@ -37,11 +38,12 @@ function Login(props) {
         event.preventDefault()
 
         try {
-            const data = await axios.post('/login', loginData)
-            if (data?.status === 200) {
-                console.log(data)
+            const data = await callApiPost('/login', loginData)
+            if (data) {
                 handleClose()
-                navigatePage("feed")
+                writeAccessToken(data?.accessToken);
+                writeRefreshToken(data?.refreshToken);
+                navigatePage("feed");
             }
         }
         catch (error) {

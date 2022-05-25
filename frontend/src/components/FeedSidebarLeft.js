@@ -1,4 +1,5 @@
-import React, { useState }from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
@@ -20,23 +21,22 @@ import ComposeTweetModal from './ComposeTweetModal.js';
 function FeedSidebarLeft(props) {
     const { tweets, setTweets } = props
     const [openTweetModal, setOpenTweetModal] = useState(false);
-    const handleOpenTweetModal = () => setOpenTweetModal(true); 
-
+    const handleOpenTweetModal = () => setOpenTweetModal(true);
 
     return (
         <Stack direction='column' spacing={4} alignItems='center' justifyContent='center' marginTop='3rem'>
             <Paper sx={{ width: '75%', height: '75%' }}>
                 <MenuList>
                     <MenuItem>
-                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                        <ListItemIcon sx={{ marginRight: '1rem' }}>
                             <HomeIcon fontSize="large" />
                         </ListItemIcon>
                         <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
-                            Home
+                            <Link to='/feed'>Home</Link>
                         </ListItemText>
                     </MenuItem>
                     <MenuItem>
-                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                        <ListItemIcon sx={{ marginRight: '1rem' }}>
                             <TagIcon fontSize="large" />
                         </ListItemIcon>
                         <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
@@ -44,7 +44,7 @@ function FeedSidebarLeft(props) {
                         </ListItemText>
                     </MenuItem>
                     <MenuItem>
-                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                        <ListItemIcon sx={{ marginRight: '1rem' }}>
                             <NotificationsIcon fontSize="large" />
                         </ListItemIcon>
                         <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
@@ -52,16 +52,16 @@ function FeedSidebarLeft(props) {
                         </ListItemText>
                     </MenuItem>
                     <MenuItem>
-                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                        <ListItemIcon sx={{ marginRight: '1rem' }}>
                             <PersonIcon fontSize="large" />
                         </ListItemIcon>
                         <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>
-                            Profile
+                            <Link to='/profile'>Profile</Link>
                         </ListItemText>
                     </MenuItem>
                     <Divider />
                     <MenuItem>
-                        <ListItemIcon sx={{marginRight: '1rem'}}>
+                        <ListItemIcon sx={{ marginRight: '1rem' }}>
                             <MoreHorizIcon fontSize="large" />
                         </ListItemIcon>
                         <ListItemText primaryTypographyProps={{ fontSize: '20px', fontWeight: 400 }}>

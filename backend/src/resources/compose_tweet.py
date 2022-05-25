@@ -9,7 +9,6 @@ class ComposeTweet(Resource):
     @jwt_required()
     def post(self):
         data = request.json
-        print(data)
         tweet = Tweet(user_id=current_user.id, body=data["body"])
         db.session.add(tweet)
         db.session.commit()

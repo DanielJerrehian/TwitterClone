@@ -12,6 +12,7 @@ from backend.src.resources.register import Register
 from backend.src.resources.login import Login
 from backend.src.resources.refresh_token import RefreshToken
 from backend.src.resources.current_user import CurrentUser
+from backend.src.resources.users import Users 
 from backend.src.resources.user_tweet import UserTweet
 from backend.src.resources.compose_tweet import ComposeTweet
 from backend.src.resources.profile import Profile
@@ -35,6 +36,7 @@ def create_app():
     api.add_resource(Login, "/login")
     api.add_resource(RefreshToken, "/refresh-token")
     api.add_resource(CurrentUser, "/current-user", endpoint='current-user')
+    api.add_resource(Users, "/users")
     api.add_resource(ComposeTweet, "/compose/tweet")
     api.add_resource(UserTweet, "/<string:username>/tweet/<string:tweet_id>")
     api.add_resource(Profile, "/<string:username>")

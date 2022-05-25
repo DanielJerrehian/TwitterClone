@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -11,6 +10,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Button from '@mui/material/Button';
 
+import { callApiPost } from '../utils/callApi'
 
 function Register(props) {
     const [registerData, setRegisterData] = useState({email: '', username: '', password: ''});
@@ -38,8 +38,8 @@ function Register(props) {
         registerData["birthday"] = birthday.toISOString().split('T')[0];
         
         try {
-            const data = await axios.post('/register', registerData)
-            if (data?.status === 201) {
+            const data = await callApiPost('/register', registerData)
+            if (data) {
                 handleClose()
             }
         }
